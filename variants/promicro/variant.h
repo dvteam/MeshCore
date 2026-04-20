@@ -60,9 +60,15 @@
 
 #define PIN_SPI_NSS          (5)
 
-#define PIN_SPI1_SCK         (18)
-#define PIN_SPI1_MISO        (19)
-#define PIN_SPI1_MOSI        (20)
+#ifndef PIN_SPI1_SCK
+  #define PIN_SPI1_SCK         (18)
+#endif
+#ifndef PIN_SPI1_MISO
+  #define PIN_SPI1_MISO        (19)
+#endif
+#ifndef PIN_SPI1_MOSI
+  #define PIN_SPI1_MOSI        (20)
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 // Builtin LEDs
@@ -79,4 +85,15 @@
 #define PIN_BUTTON1          (6)
 #define BUTTON_PIN           PIN_BUTTON1
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// SPI constants for GxEPD2 library compatibility
+#if defined(EINK_DISPLAY_MODEL)
+    extern const int MISO;
+    extern const int MOSI;
+    extern const int SCK;
+#endif
 
